@@ -22,11 +22,11 @@ class session {
 
     public function __construct($configFile) {
 
-        // Start session if it is not already started
-        if (!session_id())
-            session_start();
-
         $config = require($configFile);
+
+		// Start session if it is not already started
+		if (!session_id())
+			session_start();
 
         // _sessionVar option is set
         if (isset($config[self::SESSION_VAR])) {
